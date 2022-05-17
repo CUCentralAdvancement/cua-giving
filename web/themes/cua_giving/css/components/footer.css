@@ -1,0 +1,16 @@
+footer {
+    /*display: flex;*/
+    flex-grow: 0;
+    background-color: black;
+    color: white;
+}
+
+.region.region-footer {
+    max-width: 1276px;
+    margin: 0 auto;
+}
+
+.region.region-footer a {
+    color: white;
+    text-decoration: none;
+}

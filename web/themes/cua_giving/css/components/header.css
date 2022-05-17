@@ -1,0 +1,18 @@
+
+header {
+    flex-grow: 0;
+    /*display: flex;*/
+}
+
+.region.region-header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin: 0 auto;
+    max-width: 1276px;
+    padding: 24px;
+}
+
+.site-logo img {
+    height: 80px;
+}

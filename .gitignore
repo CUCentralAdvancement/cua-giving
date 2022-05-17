@@ -95,3 +95,14 @@
 
 # Ignore .env files as they are personal
 #/.env
+
+# No db exports.
+*.sql
+
+# No node dependencies.
+node_modules
+
+# IntelliJ
+*.idea
+
+foo.html
