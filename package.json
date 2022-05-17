@@ -5,7 +5,6 @@
   "repository": "ssh://codeserver.dev.3dbc2c82-d66a-4c97-8dce-dffc39c68c62@codeserver.dev.3dbc2c82-d66a-4c97-8dce-dffc39c68c62.drush.in:2222/~/repository.git",
   "author": "Alex Finnarn <alex.finnarn@gmail.com>",
   "license": "MIT",
-  "devDependencies": {
-    "tailwindcss": "^3.0.24"
-  }
+  "scripts": {},
+  "devDependencies": {}
 }

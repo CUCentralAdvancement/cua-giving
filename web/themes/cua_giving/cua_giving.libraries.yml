@@ -5,21 +5,10 @@ global:
   css:
     base:
       css/base/elements.css: {}
-    component:
-      css/components/block.css: {}
-      css/components/breadcrumb.css: {}
-      css/components/field.css: {}
-      css/components/form.css: {}
-      css/components/header.css: {}
-      css/components/footer.css: {}
-      css/components/main.css: {}
-      css/components/menu.css: {}
-      css/components/messages.css: {}
-      css/components/node.css: {}
-      css/components/sidebar.css: {}
-      css/components/table.css: {}
-      css/components/tabs.css: {}
-      css/components/buttons.css: {}
+    region:
+      css/regions/header.css: {}
+      css/regions/footer.css: {}
+      css/regions/main.css: {}
     layout:
       css/layouts/layout.css: {}
     theme:
