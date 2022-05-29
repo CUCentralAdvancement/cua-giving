@@ -6,7 +6,7 @@ footer {
 }
 
 .region.region-footer {
-    max-width: 1276px;
+    max-width: var(--screen-xl);
     margin: 0 auto;
 }
 
