@@ -1,0 +1,8 @@
+uuid: 3fcd7cf5-4245-422b-8884-acf0f69ded88
+langcode: en
+status: true
+dependencies: {  }
+name: Campuses
+vid: campuses
+description: 'CU''s four campuses.'
+weight: 0
