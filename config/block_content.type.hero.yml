@@ -1,0 +1,8 @@
+uuid: 13b575d1-63ea-4fcb-8fb4-9d8d2d16cfd8
+langcode: en
+status: true
+dependencies: {  }
+id: hero
+label: Hero
+revision: 1
+description: 'Place a hero image and text.'

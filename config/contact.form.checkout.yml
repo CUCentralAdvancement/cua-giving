@@ -1,0 +1,12 @@
+uuid: 4bd0d77a-3239-4a49-91d9-ee07c436ee47
+langcode: en
+status: true
+dependencies: {  }
+id: checkout
+label: Checkout
+recipients:
+  - alex.finnarn@gmail.com
+reply: ''
+weight: 0
+message: ''
+redirect: ''

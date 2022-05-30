@@ -1,0 +1,20 @@
+uuid: 2b8e1983-f402-4063-909e-40eef903ea1c
+langcode: en
+status: true
+dependencies:
+  theme:
+    - cua_giving
+_core:
+  default_config_hash: ItFhhiUOoeR7oIq73ZaCV7PAYrOwXZ-9fazMzF5DJXM
+id: cua_giving_page_title
+theme: cua_giving
+region: content
+weight: -5
+provider: null
+plugin: page_title_block
+settings:
+  id: page_title_block
+  label: 'Page title'
+  label_display: '0'
+  provider: core
+visibility: {  }

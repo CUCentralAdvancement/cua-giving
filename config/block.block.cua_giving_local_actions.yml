@@ -1,0 +1,20 @@
+uuid: 6c39f139-d491-4dc4-a39b-235d507df08f
+langcode: en
+status: true
+dependencies:
+  theme:
+    - cua_giving
+_core:
+  default_config_hash: XRdb8LpbArVA6CpuuEZxzi50JIdjsJaCCZ5o3fH0Blk
+id: cua_giving_local_actions
+theme: cua_giving
+region: content
+weight: -3
+provider: null
+plugin: local_actions_block
+settings:
+  id: local_actions_block
+  label: 'Primary admin actions'
+  label_display: '0'
+  provider: core
+visibility: {  }
