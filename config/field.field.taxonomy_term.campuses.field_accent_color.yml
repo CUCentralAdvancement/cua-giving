@@ -1,0 +1,19 @@
+uuid: 4145a7e6-f8dc-40f4-a51b-210b5360ee6f
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.taxonomy_term.field_accent_color
+    - taxonomy.vocabulary.campuses
+id: taxonomy_term.campuses.field_accent_color
+field_name: field_accent_color
+entity_type: taxonomy_term
+bundle: campuses
+label: 'Accent Color'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

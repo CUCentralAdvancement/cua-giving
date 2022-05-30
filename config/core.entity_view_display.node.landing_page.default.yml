@@ -1,0 +1,102 @@
+uuid: 378e08fe-2030-4108-a35a-a153f45f767c
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.node.landing_page.body
+    - field.field.node.landing_page.layout_builder__layout
+    - node.type.landing_page
+  module:
+    - layout_builder
+    - layout_builder_restrictions
+    - layout_discovery
+    - text
+    - user
+third_party_settings:
+  layout_builder:
+    enabled: true
+    allow_custom: true
+    sections:
+      -
+        layout_id: layout_onecol
+        layout_settings:
+          label: ''
+        components:
+          a095b76f-d976-431a-a260-62fa19b4c8c0:
+            uuid: a095b76f-d976-431a-a260-62fa19b4c8c0
+            region: content
+            configuration:
+              id: 'extra_field_block:node:landing_page:links'
+              label_display: '0'
+              context_mapping:
+                entity: layout_builder.entity
+            weight: 0
+            additional: {  }
+          62a2f9e6-c76d-4ca5-8f23-2103378c459d:
+            uuid: 62a2f9e6-c76d-4ca5-8f23-2103378c459d
+            region: content
+            configuration:
+              id: 'field_block:node:landing_page:body'
+              label_display: '0'
+              context_mapping:
+                entity: layout_builder.entity
+              formatter:
+                type: text_default
+                label: hidden
+                settings: {  }
+                third_party_settings: {  }
+            weight: 1
+            additional: {  }
+        third_party_settings: {  }
+  layout_builder_restrictions:
+    allowed_block_categories: {  }
+    entity_view_mode_restriction:
+      allowed_layouts: {  }
+      blacklisted_blocks: {  }
+      whitelisted_blocks:
+        'Content fields':
+          - 'field_block:node:landing_page:body'
+          - 'field_block:node:landing_page:title'
+        'Custom block types':
+          - basic
+          - hero
+        'Custom blocks':
+          - 'block_content:027cd487-476d-40d2-818a-fe14cab91441'
+        Forms:
+          - search_form_block
+          - user_login_block
+        'Inline blocks':
+          - 'inline_block:basic'
+          - 'inline_block:hero'
+        'Lists (Views)':
+          - 'views_block:campuses-block_1'
+          - 'views_block:interests-block_1'
+        Menus:
+          - 'system_menu_block:footer'
+          - 'system_menu_block:main'
+        System:
+          - system_breadcrumb_block
+          - system_messages_block
+        User: {  }
+        core: {  }
+      restricted_categories:
+        - Devel
+id: node.landing_page.default
+targetEntityType: node
+bundle: landing_page
+mode: default
+content:
+  body:
+    type: text_default
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    weight: 101
+    region: content
+  links:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 100
+    region: content
+hidden:
+  layout_builder__layout: true

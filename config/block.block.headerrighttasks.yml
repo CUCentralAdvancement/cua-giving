@@ -1,9 +1,9 @@
-uuid: 189a710c-6195-41ba-b102-1b9f96819477
+uuid: 9311fb32-58c2-41cd-b863-58565bcda8bf
 langcode: en
 status: true
 dependencies:
   content:
-    - 'block_content:basic:fb367e26-df87-4d49-88a2-e057173cc6cf'
+    - 'block_content:basic:027cd487-476d-40d2-818a-fe14cab91441'
   module:
     - block_content
   theme:
@@ -13,9 +13,9 @@ theme: cua_giving
 region: header
 weight: 0
 provider: null
-plugin: 'block_content:fb367e26-df87-4d49-88a2-e057173cc6cf'
+plugin: 'block_content:027cd487-476d-40d2-818a-fe14cab91441'
 settings:
-  id: 'block_content:fb367e26-df87-4d49-88a2-e057173cc6cf'
+  id: 'block_content:027cd487-476d-40d2-818a-fe14cab91441'
   label: 'Header - Right Tasks'
   label_display: '0'
   provider: block_content
