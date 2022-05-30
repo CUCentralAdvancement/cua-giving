@@ -1,0 +1,25 @@
+uuid: 189a710c-6195-41ba-b102-1b9f96819477
+langcode: en
+status: true
+dependencies:
+  content:
+    - 'block_content:basic:fb367e26-df87-4d49-88a2-e057173cc6cf'
+  module:
+    - block_content
+  theme:
+    - cua_giving
+id: headerrighttasks
+theme: cua_giving
+region: header
+weight: 0
+provider: null
+plugin: 'block_content:fb367e26-df87-4d49-88a2-e057173cc6cf'
+settings:
+  id: 'block_content:fb367e26-df87-4d49-88a2-e057173cc6cf'
+  label: 'Header - Right Tasks'
+  label_display: '0'
+  provider: block_content
+  status: true
+  info: ''
+  view_mode: full
+visibility: {  }

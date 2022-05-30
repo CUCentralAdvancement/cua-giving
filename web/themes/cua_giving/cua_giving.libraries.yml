@@ -1,0 +1,16 @@
+# Main theme library.
+# Notes for later: https://www.drupal.org/node/2274843.
+global:
+  js:
+    js/cua-giving.js: {}
+  css:
+    base:
+      css/base/elements.css: {}
+      css/base/variables.css: {}
+    layout:
+      css/layouts/layout.css: {}
+    theme:
+      css/regions/header.css: { }
+      css/regions/footer.css: { }
+      css/regions/main.css: { }
+      css/theme/print.css: { media: print }
