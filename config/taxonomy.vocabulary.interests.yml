@@ -1,0 +1,8 @@
+uuid: 136679d7-910c-4327-b08d-3a1c624266f3
+langcode: en
+status: true
+dependencies: {  }
+name: Interests
+vid: interests
+description: 'Fund interests.'
+weight: 0

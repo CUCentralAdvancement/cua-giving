@@ -5,7 +5,11 @@ dependencies:
   config:
     - block_content.type.hero
     - field.field.block_content.hero.body
+    - field.field.block_content.hero.field_cta_link
+    - field.field.block_content.hero.field_hero_media_item
   module:
+    - link
+    - media_library
     - text
 id: block_content.hero.default
 targetEntityType: block_content
@@ -21,6 +25,21 @@ content:
       summary_rows: 3
       placeholder: ''
       show_summary: false
+    third_party_settings: {  }
+  field_cta_link:
+    type: link_default
+    weight: 28
+    region: content
+    settings:
+      placeholder_url: ''
+      placeholder_title: ''
+    third_party_settings: {  }
+  field_hero_media_item:
+    type: media_library_widget
+    weight: 27
+    region: content
+    settings:
+      media_types: {  }
     third_party_settings: {  }
   info:
     type: string_textfield

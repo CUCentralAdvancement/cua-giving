@@ -46,19 +46,19 @@ if ((file_exists(__DIR__ . '/settings.ddev.redis.php') && getenv('IS_DDEV_PROJEC
 
 // Redis.
 // Include the Redis services.yml file. Adjust the path if you installed to a contrib or other subdirectory.
-$settings['container_yamls'][] = 'modules/redis/example.services.yml';
-$settings['cache']['default'] = 'cache.backend.redis';
-$settings['cache']['bins']['form'] = 'cache.backend.database'; // Use the database for forms
-$settings['redis.connection']['interface'] = 'PhpRedis';
-if (defined('PANTHEON_ENVIRONMENT')) {
-    $settings['redis.connection']['host']      = $_ENV['CACHE_HOST'];
-    $settings['redis.connection']['port']      = $_ENV['CACHE_PORT'];
-    $settings['redis.connection']['password']  = $_ENV['CACHE_PASSWORD'];
-    $settings['redis_compress_length'] = 100;
-    $settings['redis_compress_level'] = 1;
-    $settings['cache_prefix']['default'] = 'pantheon-redis';
-} else {
-    $settings['redis.connection']['host']      = 'ddev-cua-giving-redis';  // Your Redis instance hostname.
-}
+//$settings['container_yamls'][] = 'modules/redis/example.services.yml';
+//$settings['cache']['default'] = 'cache.backend.redis';
+//$settings['cache']['bins']['form'] = 'cache.backend.database'; // Use the database for forms
+//$settings['redis.connection']['interface'] = 'PhpRedis';
+//if (defined('PANTHEON_ENVIRONMENT')) {
+//    $settings['redis.connection']['host']      = $_ENV['CACHE_HOST'];
+//    $settings['redis.connection']['port']      = $_ENV['CACHE_PORT'];
+//    $settings['redis.connection']['password']  = $_ENV['CACHE_PASSWORD'];
+//    $settings['redis_compress_length'] = 100;
+//    $settings['redis_compress_level'] = 1;
+//    $settings['cache_prefix']['default'] = 'pantheon-redis';
+//} else {
+//    $settings['redis.connection']['host']      = 'ddev-cua-giving-redis';  // Your Redis instance hostname.
+//}
 
 

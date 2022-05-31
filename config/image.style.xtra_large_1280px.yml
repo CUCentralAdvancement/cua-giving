@@ -1,0 +1,15 @@
+uuid: 0b1bab2f-8730-4c27-9fbe-95a91df59b2e
+langcode: en
+status: true
+dependencies: {  }
+name: xtra_large_1280px
+label: 'Xtra Large - 1280px'
+effects:
+  819114b6-443d-491b-a1a1-73d7105b6f8a:
+    uuid: 819114b6-443d-491b-a1a1-73d7105b6f8a
+    id: image_scale
+    weight: 1
+    data:
+      width: 1280
+      height: null
+      upscale: false

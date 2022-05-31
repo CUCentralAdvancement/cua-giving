@@ -5,18 +5,35 @@ dependencies:
   config:
     - block_content.type.hero
     - field.field.block_content.hero.body
+    - field.field.block_content.hero.field_cta_link
+    - field.field.block_content.hero.field_hero_media_item
   module:
-    - text
+    - link
 id: block_content.hero.default
 targetEntityType: block_content
 bundle: hero
 mode: default
 content:
-  body:
-    type: text_default
+  field_cta_link:
+    type: link
     label: hidden
-    settings: {  }
+    settings:
+      trim_length: 120
+      url_only: false
+      url_plain: false
+      rel: '0'
+      target: '0'
+    third_party_settings: {  }
+    weight: 1
+    region: content
+  field_hero_media_item:
+    type: entity_reference_entity_view
+    label: hidden
+    settings:
+      view_mode: full
+      link: false
     third_party_settings: {  }
     weight: 0
     region: content
-hidden: {  }
+hidden:
+  body: true
