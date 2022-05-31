@@ -2,6 +2,8 @@
 
 This site lives at https://giving.cu.edu and powers the online giving experience for the University of Colorado.
 
+A complimentary user guide exists at https://github.com/CUCentralAdvancement/giving-site-user-guide, but this repository will only cover the codebase and maintainence. 
+
 **Note:** The project and this readme will practice "Readme-driven-development" where everything is written as if the project is launched, but for some time, a lot of the sections will be inaccurate while code is being developed.
 
 ## Philosophies
