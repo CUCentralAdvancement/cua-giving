@@ -1,0 +1,7 @@
+name: CUA Theme Suggestions
+type: module
+description: Provides theme suggestions for custom blocks, views, and elsethings.
+package: CUA
+core_version_requirement: ^9 || ^10
+dependencies:
+  - views

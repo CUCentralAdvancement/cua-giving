@@ -1,0 +1,19 @@
+<?php
+
+/**
+ * @file
+ * Primary module hooks for CUA Theme Suggestions module.
+ */
+
+/**
+ * Implements hook_theme_suggestions_HOOK().
+ *
+ * Add views field template suggestions.
+ *
+ * @inheritdoc
+ */
+function cua_theme_suggestions_theme_suggestions_views_view_fields(array $variables) {
+    return [
+      'views_view_fields__' . $variables['view']->id()
+    ];
+}
