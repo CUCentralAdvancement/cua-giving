@@ -106,3 +106,5 @@ node_modules
 *.idea
 
 foo.html
+
+*.DS_Store

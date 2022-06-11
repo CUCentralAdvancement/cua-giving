@@ -1,0 +1,86 @@
+{#
+/**
+ * @file
+ * Theme override for a main view template.
+ *
+ * Available variables:
+ * - attributes: Remaining HTML attributes for the element.
+ * - css_name: A CSS-safe version of the view name.
+ * - css_class: The user-specified classes names, if any.
+ * - header: The optional header.
+ * - footer: The optional footer.
+ * - rows: The results of the view query, if any.
+ * - empty: The content to display if there are no rows.
+ * - pager: The optional pager next/prev links to display.
+ * - exposed: Exposed widget form/info to display.
+ * - feed_icons: Optional feed icons to display.
+ * - more: An optional link to the next page of results.
+ * - title: Title of the view, only used when displaying in the admin preview.
+ * - title_prefix: Additional output populated by modules, intended to be
+ *   displayed in front of the view title.
+ * - title_suffix: Additional output populated by modules, intended to be
+ *   displayed after the view title.
+ * - attachment_before: An optional attachment view to be displayed before the
+ *   view content.
+ * - attachment_after: An optional attachment view to be displayed after the
+ *   view content.
+ * - dom_id: Unique id for every view being printed to give unique class for
+ *   JavaScript.
+ *
+ * @see template_preprocess_views_view()
+ */
+#}
+{% set classes = [
+    'view',
+    'view-' ~ id|clean_class,
+    'view-id-' ~ id,
+    'view-display-id-' ~ display_id,
+    dom_id ? 'js-view-dom-id-' ~ dom_id,
+] %}
+<style>
+    .block-views-blockcampuses-block-1 h2 {
+        text-align: center;
+    }
+    .campuses-view-container {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr 1fr;
+        grid-template-rows: auto;
+        grid-gap: var(--spacing-8);
+    }
+
+    .campuses-view-container a {
+        text-decoration: none;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .campuses-view-item {
+        color: white;
+        min-height: 200px;
+        min-width: 200px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .campuses-view-color {
+        min-height: var(--spacing-8);
+    }
+</style>
+<div{{ attributes.addClass(classes) }}>
+    <div class="campuses-view-container">
+        {% for term in terms -%}
+            <a href="">
+                <div class="campuses-view-item"
+                     style="background-image: url({{ file_url(term.field_main_image[0].entity.field_media_image[0].entity.uri.value) }})">
+                    <div class="">
+                        {{ term.name.value }}
+                    </div>
+                </div>
+                <div class="campuses-view-color"
+                     style="background-color: {{ term.field_accent_color.value }}">
+                </div>
+            </a>
+        {% endfor %}
+    </div>
+</div>

@@ -12,20 +12,22 @@ use Drupal\taxonomy\Entity\Term;
  */
 function cua_theme_suggestions_theme($existing, $type, $theme, $path)
 {
-      return [
-        'views_view_fields__campuses' => [
-          'variables' => [
-            'term' => null,
-            'view' => null,
-          ],
+    return [
+      'views_view__campuses' => [
+        'variables' => [
+          'terms' => null,
+          'view' => null,
+          'rows' => null,
         ],
-        'views_view_fields__interests' => [
-          'variables' => [
-            'term' => null,
-            'view' => null,
-          ],
+      ],
+      'views_view__interests' => [
+        'variables' => [
+          'terms' => null,
+          'view' => null,
+          'rows' => null,
         ],
-      ];
+      ],
+    ];
 }
 
 /**
@@ -36,59 +38,28 @@ function cua_theme_suggestions_theme($existing, $type, $theme, $path)
  *
  * @inheritdoc
  */
-function cua_theme_suggestions_theme_suggestions_views_view_fields(array $variables)
+function cua_theme_suggestions_theme_suggestions_views_view(array $variables)
 {
     return [
-      'views_view_fields__' . $variables['view']->id(),
+      'views_view_display__' . $variables['view']->current_display,
     ];
 }
 
-/**
- * Prepares variables for views fields templates.
- *
- * Default template: views-view-fields.html.twig.
- *
- * @param array $variables
- *   An associative array containing:
- *   - view: The view object.
- *   - options: An array of options. Each option contains:
- *     - inline: An array that contains the fields that are to be
- *       displayed inline.
- *     - default_field_elements: If default field wrapper
- *       elements are to be provided.
- *     - hide_empty: Whether the field is to be hidden if empty.
- *     - element_default_classes: If the default classes are to be added.
- *     - separator: A string to be placed between inline fields to keep them
- *       visually distinct.
- *    - row: An array containing information about the current row.
- */
-function template_preprocess_views_view_fields__campuses(&$variables)
+function template_preprocess_views_view__campuses(&$variables)
 {
-    $term = Term::load($variables['row']->tid);
-    $variables['term'] = $term;
+    $terms = [];
+    foreach ($variables["rows"][0]["#rows"] as $row) {
+        $terms[] = Term::load($row["#row"]->tid);
+    }
+    $variables['terms'] = $terms;
 }
 
-/**
- * Prepares variables for views fields templates.
- *
- * Default template: views-view-fields.html.twig.
- *
- * @param array $variables
- *   An associative array containing:
- *   - view: The view object.
- *   - options: An array of options. Each option contains:
- *     - inline: An array that contains the fields that are to be
- *       displayed inline.
- *     - default_field_elements: If default field wrapper
- *       elements are to be provided.
- *     - hide_empty: Whether the field is to be hidden if empty.
- *     - element_default_classes: If the default classes are to be added.
- *     - separator: A string to be placed between inline fields to keep them
- *       visually distinct.
- *    - row: An array containing information about the current row.
- */
-function template_preprocess_views_view_fields__interests(&$variables)
+function template_preprocess_views_view__interests(&$variables)
 {
-    $term = Term::load($variables['row']->tid);
-    $variables['term'] = $term;
+    $terms = [];
+    foreach ($variables["rows"][0]["#rows"] as $row) {
+        $terms[] = Term::load($row["#row"]->tid);
+    }
+    $variables['terms'] = $terms;
 }
+
