@@ -1,0 +1,8 @@
+uuid: f1fd7b53-a267-4437-9e26-44158402ec30
+langcode: en
+status: true
+dependencies: {  }
+name: 'Fund Types'
+vid: fund_types
+description: ''
+weight: 0

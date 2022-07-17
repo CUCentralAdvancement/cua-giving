@@ -1,0 +1,189 @@
+<?php
+
+/**
+ * @file
+ * Install, update and uninstall functions for the Seed Content module.
+ */
+
+use Drupal\Component\Plugin\Exception\InvalidPluginDefinitionException;
+use Drupal\Component\Plugin\Exception\PluginNotFoundException;
+use Drupal\Core\Entity\EntityStorageException;
+use Drupal\Core\Extension\ExtensionPathResolver;
+
+/**
+ * Implements hook_install().
+ */
+function cua_seed_content_install() {
+    // Import keywords.
+    $keywords = json_decode(file_get_contents( ExtensionPathResolver::getPath('module', 'cua_seed_content') . '/seeds/keywords.json'));
+    _cua_import_keywords($keywords);
+
+    // Import Funds.
+    $fund_contents = json_decode(file_get_contents(ExtensionPathResolver::getPath('module', 'cua_seed_content') . '/seeds/funds.json'));
+    _cua_import_funds($fund_contents);
+
+    // Import FAQs.
+    $faqs_contents = json_decode(file_get_contents(ExtensionPathResolver::getPath('module', 'cua_seed_content') . '/seeds/faqs.json'));
+    _cua_import_faqs($faqs_contents);
+
+    // Import Pages.
+    $pages_contents = json_decode(file_get_contents(ExtensionPathResolver::getPath('module', 'cua_seed_content') . '/seeds/pages.json'));
+    _cua_import_pages($pages_contents);
+
+    // Import vanity URLs.
+//    $redirects_contents = json_decode(file_get_contents(ExtensionPathResolver::getPath('module',
+//        'cua_seed_content') . '/seeds/redirects.json'));
+//    _cua_import_redirects($redirects_contents);
+}
+
+/**
+ * Implements hook_uninstall().
+ */
+function cua_seed_content_uninstall() {
+    \Drupal::messenger()->addStatus(__FUNCTION__);
+}
+
+function _cua_import_faqs($contents) {
+    foreach ($contents as $key => $el) {
+        //    if ($key > 2) {
+        //      continue;
+        //    }
+        echo "Creating FAQ... $el->title \n";
+
+        $values = [
+          'nid' => NULL,
+          'type' => 'faq',
+          'uid' => 1,
+          'status' => TRUE,
+          'title' => $el->title,
+          'field_category' => $el->category,
+          'field_detailed_question' => $el->detailed_question,
+          'body' => $el->content,
+          'field_slug' => $el->path,
+        ];
+
+        try {
+            $node = \Drupal::entityTypeManager()->getStorage('node')->create($values);
+            $node->save();
+        } catch (InvalidPluginDefinitionException | PluginNotFoundException | EntityStorageException $e) {
+        }
+    }
+}
+
+function _cua_import_funds($contents) {
+    $serializer = \Drupal::service('serializer');
+    foreach ($contents as $key => $el) {
+        //    if ($key > 2) {
+        //      continue;
+        //    }
+        echo "Creating Fund... $el->title \n";
+
+        $terms = [];
+//        foreach (explode(',', $el->keywords) as $keyword) {
+//            $array = taxonomy_term_load_multiple_by_name($keyword);
+//            $term = array_shift($array);
+//            $term_data = json_decode($serializer->serialize($term, 'json', ['plugin_id' => 'taxonomy']), TRUE);
+//            if (isset($term_data["tid"])) {
+//                $terms[] = $term_data["tid"][0]["value"];
+//            } else {
+//                echo "Keyword issue... $el->title \n";
+//            }
+//        }
+
+        $values = [
+          'nid' => NULL,
+          'type' => 'fund',
+          'uid' => 1,
+          'status' => TRUE,
+          'title' => $el->title,
+          'body' => $el->description,
+          'field_slug' => $el->path,
+          'field_fund_owners' => $el->fund_owners,
+          'field_marketing_content' => $el->marketing_content,
+            //      'marketing_content_publish' => $el->marketing_content_publish,
+            //      'marketing_content_unpublish' => $el->marketing_content_unpublish,
+          'field_allocation_code' => $el->allocation_code,
+          'field_suggested_amount' => $el->suggested_amount,
+          'field_featured_fund' => $el->featured_fund,
+          'field_active' => $el->active,
+          'field_campus' => $el->campus,
+          'field_keywords' => $terms,
+          'field_interest' => $el->interest,
+          'field_fund_type' => $el->fund_type,
+        ];
+        try {
+            $node = \Drupal::entityTypeManager()->getStorage('node')->create($values);
+            $node->save();
+        } catch (InvalidPluginDefinitionException | PluginNotFoundException | EntityStorageException $e) {
+        }
+    }
+}
+
+function _cua_import_keywords($keywords) {
+    foreach ($keywords as $key => $el) {
+        //    if ($key > 2) {
+        //      continue;
+        //    }
+        echo "Creating Keyword... $el->name \n";
+        $values = [
+          'name' => $el->name,
+          'vid' => 'keywords',
+        ];
+
+        try {
+            $term = \Drupal::entityTypeManager()->getStorage('taxonomy_term')->create($values);
+            $term->save();
+        } catch (InvalidPluginDefinitionException | PluginNotFoundException | EntityStorageException $e) {
+        }
+    }
+}
+
+function _cua_import_pages($contents) {
+    foreach ($contents as $key => $el) {
+        //    if ($key > 2) {
+        //      continue;
+        //    }
+        echo "Creating Page... $el->title \n";
+
+        $values = [
+          'nid' => NULL,
+          'type' => 'page',
+          'uid' => 1,
+          'status' => TRUE,
+          'title' => $el->title,
+          'body' => $el->content,
+          'field_slug' => $el->path,
+        ];
+
+        try {
+            $node = \Drupal::entityTypeManager()->getStorage('node')->create($values);
+            $node->save();
+        } catch (InvalidPluginDefinitionException | PluginNotFoundException | EntityStorageException $e) {
+        }
+    }
+}
+
+function _cua_import_redirects($contents) {
+    foreach ($contents as $key => $el) {
+        //    if ($key == 'centerwest') {
+        //      break;
+        //    }
+        echo "Creating Short URL... $key \n";
+
+        $values = [
+          'nid' => NULL,
+          'type' => 'short_url',
+          'uid' => 1,
+          'status' => TRUE,
+          'title' => $key,
+          'field_url_source' => $key,
+          'field_url_redirect' => $el,
+        ];
+
+        try {
+            $node = \Drupal::entityTypeManager()->getStorage('node')->create($values);
+            $node->save();
+        } catch (InvalidPluginDefinitionException | PluginNotFoundException | EntityStorageException $e) {
+        }
+    }
+}

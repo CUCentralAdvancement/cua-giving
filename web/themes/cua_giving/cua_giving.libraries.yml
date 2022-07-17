@@ -6,7 +6,8 @@ global:
   css:
     base:
       css/base/elements.css: {}
-      css/base/variables.css: {}
+      css/base/variables-spacing.css: {}
+      css/base/variables-typography.css: {}
     layout:
       css/layouts/layout.css: {}
     theme:

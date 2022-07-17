@@ -27,7 +27,10 @@
         "drupal/layout_paragraphs": "^1.0",
         "drupal/devel": "^4.1",
         "drupal/stage_file_proxy": "^1.2",
-        "drupal/redis": "^1.5"
+        "drupal/redis": "^1.5",
+        "drupal/search_api": "^1.23",
+        "drupal/fontawesome": "^2.23",
+        "drupal/antibot": "^2.0"
     },
     "require-dev": {
         "drupal/core-dev": "^9.2"

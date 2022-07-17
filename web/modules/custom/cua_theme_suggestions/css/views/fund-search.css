@@ -1,0 +1,20 @@
+.view-fund-search {
+    min-width: var(--screen-xl);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    /*gap: var(--spacing-8);*/
+    background-color: var(--colors-gray-400);
+}
+
+.view-fund-search .view-content {
+    background-color: white;
+    width: 100%;
+    padding-top: var(--spacing-8);
+}
+
+.view-fund-search .form-item {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-4);
+}

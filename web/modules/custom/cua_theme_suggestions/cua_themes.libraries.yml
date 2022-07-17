@@ -1,0 +1,6 @@
+fund_search:
+#  js:
+#    js/cua-giving.js: {}
+  css:
+    theme:
+      css/views/fund-search.css: {}

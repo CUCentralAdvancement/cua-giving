@@ -1,0 +1,20 @@
+uuid: 5d20a0ae-b228-471d-9dc9-9ec89d3e048f
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+id: node.field_fund_suggested_amounts
+field_name: field_fund_suggested_amounts
+entity_type: node
+type: decimal
+settings:
+  precision: 10
+  scale: 2
+module: core
+locked: false
+cardinality: 5
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

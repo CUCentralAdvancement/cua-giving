@@ -1,0 +1,42 @@
+uuid: a1259573-0516-4ba8-8210-c459b38b9e47
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.teaser
+    - field.field.node.fund.body
+    - field.field.node.fund.field_allocation_code
+    - field.field.node.fund.field_campus
+    - field.field.node.fund.field_content
+    - field.field.node.fund.field_fund_interests
+    - field.field.node.fund.field_fund_suggested_amounts
+    - field.field.node.fund.field_fund_type
+    - node.type.fund
+  module:
+    - text
+    - user
+id: node.fund.teaser
+targetEntityType: node
+bundle: fund
+mode: teaser
+content:
+  body:
+    type: text_summary_or_trimmed
+    label: hidden
+    settings:
+      trim_length: 600
+    third_party_settings: {  }
+    weight: 101
+    region: content
+  links:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 100
+    region: content
+hidden:
+  field_allocation_code: true
+  field_campus: true
+  field_content: true
+  field_fund_interests: true
+  field_fund_suggested_amounts: true
+  field_fund_type: true

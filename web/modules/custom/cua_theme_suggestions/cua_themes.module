@@ -1,0 +1,107 @@
+<?php
+
+/**
+ * @file
+ * Primary module hooks for CUA Theme Suggestions module.
+ */
+
+use Drupal\taxonomy\Entity\Term;
+use Drupal\views\ViewExecutable;
+
+/**
+ * Implements hook_theme().
+ */
+function cua_themes_theme($existing, $type, $theme, $path)
+{
+    return [
+      'views_view__campuses' => [
+        'variables' => [
+          'terms' => null,
+          'view' => null,
+          'rows' => null,
+        ],
+      ],
+      'views_view__interests' => [
+        'variables' => [
+          'terms' => null,
+          'view' => null,
+          'rows' => null,
+        ],
+      ],
+      'views_view_unformatted__fund_search' => [
+        'variables' => [
+          'terms' => null,
+          'view' => null,
+          'rows' => null,
+        ],
+      ],
+    ];
+}
+
+/**
+ * Implements hook_theme_suggestions_HOOK().
+ *
+ * Add views field template suggestions.
+ * Taken from https://drupal.stackexchange.com/questions/227709/adding-theme-suggestions-programmatically-for-views-rows-fields
+ *
+ * @inheritdoc
+ */
+function cua_themes_theme_suggestions_views_view(array $variables)
+{
+    return [
+      'views_view_display__' . $variables['view']->current_display,
+    ];
+}
+
+/**
+ * Implements hook_theme_suggestions_HOOK_alter().
+ *
+ * Add views unformatted template suggestions.
+ *
+ * @inheritdoc
+ */
+function cua_themes_theme_suggestions_views_view_unformatted_alter(array &$suggestions, array $variables)
+{
+    return [
+      'views_view_unformatted__' . $variables['view']->id(),
+    ];
+}
+
+function template_preprocess_views_view__campuses(&$variables)
+{
+    $terms = [];
+    foreach ($variables["rows"][0]["#rows"] as $row) {
+        $terms[] = Term::load($row["#row"]->tid);
+    }
+    $variables['terms'] = $terms;
+}
+
+function template_preprocess_views_view__interests(&$variables)
+{
+    $terms = [];
+    foreach ($variables["rows"][0]["#rows"] as $row) {
+        $terms[] = Term::load($row["#row"]->tid);
+    }
+    $variables['terms'] = $terms;
+}
+
+/**
+ * Implements hook_views_pre_render().
+ */
+function cua_themes_views_pre_render(ViewExecutable $view)
+{
+    $views_to_add_css = [
+      'fund_search',
+    ];
+    if (in_array($view->storage->id(), $views_to_add_css)) {
+        $view->element['#attached']['library'][] = 'cua_themes/' . $view->storage->id();
+    }
+}
+
+/**
+ * Implements hook_form_alter().
+ */
+function cua_themes_form_alter(&$form, \Drupal\Core\Form\FormStateInterface $form_state, $form_id)
+{
+    $foo = 'bar';
+}

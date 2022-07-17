@@ -1,0 +1,30 @@
+uuid: 52b31ab7-01ac-493a-9a42-2e202c5d9dae
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.taxonomy_term.interests.field_svg_i
+    - taxonomy.vocabulary.interests
+  module:
+    - text
+id: taxonomy_term.interests.default
+targetEntityType: taxonomy_term
+bundle: interests
+mode: default
+content:
+  description:
+    type: text_default
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    weight: 0
+    region: content
+  field_svg_i:
+    type: basic_string
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 1
+    region: content
+hidden:
+  search_api_excerpt: true
