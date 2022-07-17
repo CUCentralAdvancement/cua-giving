@@ -5,6 +5,6 @@
 }
 
 .layout-content {
-    max-width: var(--screen-xl);
+    max-width: var(--screen-2xl);
     margin: 0 auto;
 }

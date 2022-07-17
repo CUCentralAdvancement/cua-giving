@@ -2,6 +2,8 @@ uuid: 2b8e1983-f402-4063-909e-40eef903ea1c
 langcode: en
 status: true
 dependencies:
+  module:
+    - system
   theme:
     - cua_giving
 _core:
@@ -17,4 +19,8 @@ settings:
   label: 'Page title'
   label_display: '0'
   provider: core
-visibility: {  }
+visibility:
+  request_path:
+    id: request_path
+    negate: true
+    pages: /funds

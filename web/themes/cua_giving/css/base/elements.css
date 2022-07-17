@@ -1,0 +1,6 @@
+.button {
+    color: white;
+    background-color: black;
+    padding: var(--spacing-2) var(--spacing-4);
+    border: none;
+}

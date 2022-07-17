@@ -1,0 +1,25 @@
+uuid: a9ee3e30-30d7-401e-9045-d536c76accdd
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_content
+    - node.type.fund
+  module:
+    - entity_reference_revisions
+id: node.fund.field_content
+field_name: field_content
+entity_type: node
+bundle: fund
+label: Content
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:paragraph'
+  handler_settings:
+    target_bundles: null
+    negate: 0
+field_type: entity_reference_revisions

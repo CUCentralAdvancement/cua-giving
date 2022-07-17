@@ -1,0 +1,5 @@
+name: cua_seed_content
+type: module
+description: Seeds content for the giving website.
+package: CUA
+core_version_requirement: ^9 || ^10

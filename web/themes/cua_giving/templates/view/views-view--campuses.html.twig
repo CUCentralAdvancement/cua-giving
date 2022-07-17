@@ -30,13 +30,6 @@
  * @see template_preprocess_views_view()
  */
 #}
-{% set classes = [
-    'view',
-    'view-' ~ id|clean_class,
-    'view-id-' ~ id,
-    'view-display-id-' ~ display_id,
-    dom_id ? 'js-view-dom-id-' ~ dom_id,
-] %}
 <style>
     .block-views-blockcampuses-block-1 h2 {
         text-align: center;
@@ -48,39 +41,56 @@
         grid-gap: var(--spacing-8);
     }
 
-    .campuses-view-container a {
+    .campus-view-item {
         text-decoration: none;
         display: flex;
         flex-direction: column;
+        transform: scale(1.0);
+        /*box-shadow: 1px 0px 2px 2px rgba(0,0,0,0.75);*/
     }
 
-    .campuses-view-item {
-        color: white;
+    .campus-view-item:hover {
+        transform: scale(1.05);
+        box-shadow: 1px 1px 3px 0px rgba(0,0,0,0.75);
+    }
+
+    .campuses-view-image {
         min-height: 200px;
         min-width: 200px;
-        display: flex;
-        justify-content: center;
-        align-items: center;
     }
 
     .campuses-view-color {
-        min-height: var(--spacing-8);
+        min-height: var(--spacing-9);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        color: white;
     }
 </style>
+{%
+    set classes = [
+    'campuses-view-container',
+    'view',
+    'view-' ~ id|clean_class,
+    'view-id-' ~ id,
+    'view-display-id-' ~ display_id,
+    dom_id ? 'js-view-dom-id-' ~ dom_id,
+]
+%}
 <div{{ attributes.addClass(classes) }}>
-    <div class="campuses-view-container">
-        {% for term in terms -%}
-            <a href="">
-                <div class="campuses-view-item"
-                     style="background-image: url({{ file_url(term.field_main_image[0].entity.field_media_image[0].entity.uri.value) }})">
-                    <div class="">
-                        {{ term.name.value }}
-                    </div>
-                </div>
-                <div class="campuses-view-color"
-                     style="background-color: {{ term.field_accent_color.value }}">
-                </div>
-            </a>
-        {% endfor %}
-    </div>
+    {% for term in terms -%}
+    <a href="" class="campus-view-item">
+        <div class="campuses-view-image"
+             style="background-image: url({{ file_url(term.field_main_image[0].entity.field_media_image[0].entity.uri.value) }})">
+        </div>
+        <div class="campuses-view-color"
+             style="background-color: {{ term.field_accent_color.value }}">
+            <div class="">
+                {{ term.name.value }}
+            </div>
+        </div>
+    </a>
+    {% endfor %}
 </div>
+
+

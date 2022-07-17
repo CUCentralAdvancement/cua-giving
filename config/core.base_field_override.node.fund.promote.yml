@@ -1,0 +1,22 @@
+uuid: 93c344c8-c402-4fcc-b00e-e6f3d85885b3
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.fund
+id: node.fund.promote
+field_name: promote
+entity_type: node
+bundle: fund
+label: 'Promoted to front page'
+description: ''
+required: false
+translatable: true
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  on_label: 'On'
+  off_label: 'Off'
+field_type: boolean

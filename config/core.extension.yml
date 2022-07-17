@@ -3,6 +3,7 @@ _core:
 module:
   admin_toolbar: 0
   admin_toolbar_tools: 0
+  antibot: 0
   automated_cron: 0
   big_pipe: 0
   block: 0
@@ -14,6 +15,7 @@ module:
   contact: 0
   content_moderation: 0
   contextual: 0
+  cua_themes: 0
   datetime: 0
   datetime_range: 0
   dblog: 0
@@ -41,14 +43,17 @@ module:
   path: 0
   path_alias: 0
   rdf: 0
+  responsive_image: 0
   search: 0
+  search_api: 0
+  search_api_db: 0
+  search_api_db_defaults: 0
   shortcut: 0
   system: 0
   taxonomy: 0
   telephone: 0
   text: 0
   toolbar: 0
-  tour: 0
   user: 0
   views_ui: 0
   workflows: 0

@@ -1,0 +1,9 @@
+name: CUA Theme Helpers
+type: module
+description: Provides theme helpers for custom blocks, views, and else things.
+package: CUA
+core_version_requirement: ^9 || ^10
+dependencies:
+  - views
+  - node
+  - block

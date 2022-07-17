@@ -41,24 +41,42 @@
     .block-views-blockinterests-block-1 h2 {
         text-align: center;
     }
+
     .interests-view-container {
         display: grid;
         grid-template-columns: 1fr 1fr 1fr 1fr;
         grid-template-rows: auto;
         grid-gap: var(--spacing-8);
     }
+
     .interests-view-container a {
         text-decoration: none;
+        transform: scale(1.0);
     }
+
+    .interests-view-container a:hover {
+        transform: scale(1.05);
+        box-shadow: 1px 1px 3px 0px rgba(0,0,0,0.75);
+    }
+
+    .interests-view-icon svg {
+        height: var(--spacing-8);
+        color: white;
+        fill: white;
+    }
+
     .interests-view-item {
         color: white;
         min-height: 200px;
         min-width: 200px;
         display: flex;
+        flex-direction: column;
         justify-content: center;
         align-items: center;
+        gap: var(--spacing-2);
         background-color: var(--colors-gray-400);
     }
+
     .interests-view-item:hover {
         background-color: var(--colors-gold-400);
     }
@@ -68,6 +86,9 @@
         {% for term in terms -%}
             <a href="">
                 <div class="interests-view-item">
+                    <div class="interests-view-icon">
+                        {{ term.field_svg_i.value | raw }}
+                    </div>
                     <div class="interest-view-term-name">
                         {{ term.name.value }}
                     </div>
